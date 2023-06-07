@@ -1,0 +1,49 @@
+{% extends 'dashboard/base.html' %}
+{% block title %} {% endblock %}
+{% load static %}
+{% block content %}
+
+  <div class="card shadow mb-4">
+      <form method="post">
+          {% csrf_token %}
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+
+                  {{ forms.as_p }}
+
+                </div>
+                 <button type="submit" class="btn  btn-success">
+          <i class="fas fa-check"></i>
+             saqlash</button>
+         <a href="{% url 'dash_register_reg' %}"  class="btn btn-primary btn-square" type="button" >
+
+          <i class="fas fa-left"></i>
+          <i class="fas fa-left"></i>
+             ortga
+
+          </a>
+            </div>
+
+      </form>
+        </div>
+ <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'dashboard/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{% static 'dashboard/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{% static 'dashboard/js/demo/datatables-demo.js' %}"></script>
+
+{% endblock %}

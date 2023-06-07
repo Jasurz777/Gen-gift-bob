@@ -1,0 +1,85 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} User Edit {% endblock %}
+{% block content %}
+
+<div class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-4 col-md-5">
+				<div class="card card-user">
+					<div class="image">
+					</div>
+					<div class="card-content">
+						<div class="author">
+						  <img class="avatar border-white" src="#" alt="..."/>
+						  <h4 class="card-title">{{ user.name }} <br/>
+							 <a href="#"><small>{{ user.user_name }} {{ user.last_name }} </small></a>
+						  </h4>
+						</div>
+						<p class="description text-center">
+						</p>
+					</div>
+					<hr>
+					<div class="text-center">
+					</div>
+				</div>
+				</a>
+				<a href="{% url 'dash_password_change' %}">
+				<button type="button" class="btn btn-wd btn-info  btn-rotate">
+				<span class="btn-label">
+					<i class="fa fa-edit"></i>
+				</span>
+				Edit password
+			</button>
+				 </a>
+
+			</div>
+			<div class="col-lg-8 col-md-7">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="card-title">Edit Profile</h4>
+					</div>
+					<div class="card-content">
+						<form method="post">
+							{% csrf_token %}
+							<div class="row">
+
+								<div class="col-md-3">
+									<div class="form-group">
+										<label>Username</label>
+										<input type="text" class="form-control border-input" name="user_name" placeholder="Username" value="{{ user.user_name }}">
+									</div>
+								</div>
+								<div class="col-md-4">
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>First Name</label>
+										<input type="text" class="form-control border-input" name="name" placeholder="Name" value="{{ user.first_name }}">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Last Name</label>
+										<input type="text" class="form-control border-input" name="last_name" placeholder="Last Name" value="{{ user.last_name }}">
+									</div>
+								</div>
+							</div>
+
+							<div class="text-center">
+								<button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+							</div>
+							<div class="clearfix"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

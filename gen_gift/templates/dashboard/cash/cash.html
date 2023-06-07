@@ -1,0 +1,80 @@
+{% extends 'dashboard/base.html' %}
+{% block title %} Cash {% endblock %}
+{% load static %}
+{% block content %}
+
+ <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead  >
+                        <tr>
+                            <th class="thea">№</th>
+                            <th>Cash</th>
+                        </tr>
+                    </thead>
+
+                    {% for i in lists %}
+                    <tbody>
+                        <tr><td>{{ forloop.counter }}</td>
+                            <td>
+                            {{ i.name_uz }}
+                                 <a href="{% url 'dash_cash_edit' pk=i.id %}" class="btn btn-info btn-circle btn-sm">
+                                    <i class="fas fa-info-circle"></i>
+                                 </a>
+                                <a href="{% url 'dash_cash_delete' pk=i.id %}" class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+                <a href="{% url 'dash_cash_add' %}">
+                <button type="button" class="btn btn-info">qo'shish</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+
+
+
+
+
+
+ <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'dashboard/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{% static 'dashboard/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{% static 'dashboard/js/demo/datatables-demo.js' %}"></script>
+
+{% endblock %}

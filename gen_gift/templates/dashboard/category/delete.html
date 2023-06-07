@@ -1,0 +1,25 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Course - Delete{% endblock %}
+{% load static %}
+{% block content %}
+
+<h3><b>{{ ctg.name_uz }}</b> courseni o'chirasizmi ?</h3>
+
+<a href="{% url 'dash_category_delete' dlt=ctg.id %}">
+<button type="button" class="btn btn-wd btn-success  btn-rotate">
+    <span class="btn-label">
+        <i class="fa fa-check"></i>
+    </span>
+    Ha
+</button>
+</a>
+
+<a href="{% url 'dash_category' %}">
+<button type="button" class="btn btn-wd btn-danger">
+    <span class="btn-label">
+        <i class="fa fa-times"></i>
+    </span>
+    Yo'q
+</button>
+</a>
+{% endblock %}
